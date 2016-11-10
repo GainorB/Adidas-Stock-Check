@@ -39,14 +39,4 @@ class AdidasStock:
         stock['total'] = total
         return stock
 
-while False:
-    sku = raw_input("Enter the SKU for the requested shoe: ")
-    cId = raw_input("If you have a ClientId, enter it now. If not, click enter: ")
-    a = AdidasStock(cId, sku)
-    a.getVarientStock(sku)
-    
-#for sku in x.keys():
-#    AdidasStock.getVarientStock(x[sku], sku)
-#    time.sleep(5)
-
 
