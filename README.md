@@ -12,6 +12,6 @@ Useage:
 
 Also remember to never pay for an Adidas stock checking software, mine is just as good if not better and its free.
 
-Have fun
+Have fun,
 
-- Pascal
+Pascal
