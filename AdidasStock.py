@@ -10,7 +10,8 @@ class AdidasStock:
     def __init__(self, clientId, sku):
         # Locale for me is always US, sucks for others
         self.session = requests.session()
-        self.headers = {"User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36"}
+        self.headers = {"User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36",
+                        "Accept-Language" : "en-US,en;q=0.8"}
         self.locale = 'US'
         self.clientId = clientId
         self.sku = sku
@@ -19,8 +20,7 @@ class AdidasStock:
     def getVarientStock(self, sku):
         base = "http://www.adidas.com/on/demandware.store/Sites-adidas-US-Site/en_US"
         urlVariantStock = base + '/Product-GetVariants?pid=' + sku
-        self.session.headers = self.headers
-        r = self.session.get(urlVariantStock)
+        r = requests.get(urlVariantStock, headers=self.headers)
         try:
             versions = json.loads(r.text)['variations']['variants']
         except:
